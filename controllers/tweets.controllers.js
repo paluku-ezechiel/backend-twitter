@@ -13,10 +13,9 @@ export function getAllTweets(req, res) {
 function PostData(req,res){
     
   try {
-
     const newPost = req.body;
 
-    console.log(newPost);
+    // console.log(newPost);
         if(
             !newPost["tweet_content"]["tweet_body"]["tweet_text"] ||
             newPost["tweet_content"]["tweet_body"]["tweet_text"].trim() == ""
@@ -37,10 +36,7 @@ function PostData(req,res){
     console.error("Error creating new post:", error);
     res.status(500).send("Internal server Error");
     
-  }
-        
-
-        
+  }  
     }
 
     export default PostData;

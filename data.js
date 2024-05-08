@@ -4,8 +4,6 @@ export const data = [
         titleAuthor:"Bradley Ortiz",
         references:"@bradley_",
         avatar:"/Profile-Photo.png",
-        followers:"234k",
-        following:"4k",
         date:"mars 2022"
       }
 
