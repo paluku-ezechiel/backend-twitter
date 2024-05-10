@@ -21,4 +21,8 @@ app.use("/users", usersRoute);
 
 app.use("/user", currentuserRoute);
 
+app.use("/", (req, res) => {
+  res.send("Server running");
+});
+
 app.listen(PORT);
