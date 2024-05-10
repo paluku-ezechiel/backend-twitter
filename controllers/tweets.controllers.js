@@ -11,32 +11,10 @@ export function getAllTweets(req, res) {
 }
 
 function PostData(req,res){
-    
-  try {
-    const newPost = req.body;
+    const id = Math.floor(Math.random() * 100000).toString();
+    const body ={id, ...req.body};
+    dataArr.push(body);
+    res.status(201).json(dataArr);
+}
 
-    // console.log(newPost);
-        if(
-            !newPost["tweet_content"]["tweet_body"]["tweet_text"] ||
-            newPost["tweet_content"]["tweet_body"]["tweet_text"].trim() == ""
-        ){
-            res.status(400).send("Tweet text can not be empty");
-        }else if(
-            newPost["tweet_content"]["tweet_body"]["tweet_text"].length <= 180
-        ){
-            let nouveautweet = [newPost, ...dataArr];
-            dataArr = [...nouveautweet];
-            res.send(dataArr);
-        }else{
-            res.status(400).send("Tweet text is too long (max 180 charactere)");
-        }
-    
-  } catch (error) {
-
-    console.error("Error creating new post:", error);
-    res.status(500).send("Internal server Error");
-    
-  }  
-    }
-
-    export default PostData;
+export default PostData;
